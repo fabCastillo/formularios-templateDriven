@@ -48,7 +48,8 @@
                             class="form-control"
                             placeholder="Existencias del producto"
                             required
-                            min="0">
+                            customMin
+                            [minimo]="0">
                 </div>
             </div>
 
@@ -78,5 +79,7 @@
         <pre> {{ myForm.touched }} </pre>
         <span>Value</span>
         <pre> {{ myForm.value | json }} </pre>
+        <span>CustomMin</span>
+        <pre> {{ myForm.controls['existencias']?.errors | json }} </pre>
     </div>
 </div>
