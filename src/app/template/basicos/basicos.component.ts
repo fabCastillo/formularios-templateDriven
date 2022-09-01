@@ -17,7 +17,8 @@ export class BasicosComponent {
   }
 
   public guardar (): void {
-    console.log(this.myForm);
+    console.log('Guardado Exitoso!');
+    this.myForm.resetForm();
   }
 
 }
