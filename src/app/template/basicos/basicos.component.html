@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col">
 
-        <form (ngSubmit)="guardar()" #myForm="ngForm">
+        <form (ngSubmit)="guardar()" #myForm="ngForm" autocomplete="off">
             <div class="mb-3 row">
                 <label class="col-sm-3 col-form-label">Producto</label>
                 <div class="col-sm-9">
@@ -46,14 +46,17 @@
                             ngModel
                             name="existencias"
                             class="form-control"
-                            placeholder="Existencias del producto">
+                            placeholder="Existencias del producto"
+                            required
+                            min="0">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
                     <button type="submit"
-                            class="btn btn-primary float-end">
+                            class="btn btn-primary float-end"
+                            [disabled]="myForm.invalid">
                         Guardar
                     </button>
                 </div>
@@ -67,6 +70,8 @@
     <div class="col">
         <span>Valid</span>
         <pre> {{ myForm.valid }} </pre>
+        <span>Invalid</span>
+        <pre> {{ myForm.invalid }} </pre>
         <span>Pristine</span>
         <pre> {{ myForm.pristine }} </pre>
         <span>Touched</span>
