@@ -1,17 +1,19 @@
 <h2>Template: <small> Dinámicos </small> </h2>
 <hr>
 
-<form autocomplete="off">
+<form autocomplete="off" [formGroup]="MyForm" (ngSubmit)="save()">
 
     <!-- Nombre -->
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Nombre</label>
         <div class="col-sm-9">
             <input type="text"
-                   class="form-control" 
+                   class="form-control"
+                   formControlName="nombre"
                    placeholder="Nombre de la persona">
-            <span class="form-text text-danger">
-                Este campo es obligatorio
+            <span   class="form-text text-danger"
+                    *ngIf="fieldIsInvalid( 'nombre' )">
+                Debe de ser de 3 letras
             </span>
         </div>
     </div>
@@ -52,7 +54,7 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <button type="button" 
+            <button type="submit" 
                     class="btn btn-primary float-end">
                 Guardar
             </button>
@@ -68,4 +70,19 @@
         </pre>
     </div>
 </div> -->
+
+<div class="row">
+    <div class="col">
+        <span>Valid</span>
+        <pre> {{ MyForm.valid }} </pre>
+        <span>Invalid</span>
+        <pre> {{ MyForm.invalid }} </pre>
+        <span>Pristine</span>
+        <pre> {{ MyForm.pristine }} </pre>
+        <span>Touched</span>
+        <pre> {{ MyForm.touched }} </pre>
+        <span>Value</span>
+        <pre> {{ MyForm.value | json }} </pre>
+    </div>
+</div>
 
