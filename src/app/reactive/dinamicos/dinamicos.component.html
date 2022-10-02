@@ -38,16 +38,17 @@
     <!-- Lista de Juegos Favoritos -->
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Favoritos</label>
-        <div class="col-sm-9">
+        <div class="col-sm-9" formArrayName="favoritos">
 
-            <!-- <div *ngFor="let juego of persona.favorites; let i = index"
-                 class="input-group mb-1">
+            <div class="input-group mb-1"
+                 *ngFor="let favorito of favoritesArr.controls; let i = index">
                 <input  type="text"
-                        class="form-control">
+                        class="form-control"
+                        [formControlName]="i">
                 <button class="btn btn-outline-danger">
                     Eliminar
                 </button>
-            </div> -->
+            </div>
 
         </div>
     </div>
