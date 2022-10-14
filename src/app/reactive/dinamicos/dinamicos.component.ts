@@ -35,7 +35,6 @@ export class DinamicosComponent {
       this.MyForm.markAllAsTouched();
       return;
     }
-    console.log( this.MyForm.value );
     this.MyForm.reset();
   } 
 
@@ -47,4 +46,7 @@ export class DinamicosComponent {
     this.nuevoFavorito.reset();
   }
 
+  public borrar( index: number ) {    
+    this.favoritesArr.removeAt(index)
+  }
 }

@@ -30,6 +30,7 @@
                        [formControl]="nuevoFavorito"
                        (keyup.enter)="AddFavorite()">
                 <button class="btn btn-outline-primary"
+                        type="button"
                         (click)="AddFavorite()">
                     Agregar
                 </button>
@@ -48,7 +49,8 @@
                 <input  type="text"
                         class="form-control"
                         [formControlName]="i">
-                <button class="btn btn-outline-danger">
+                <button class="btn btn-outline-danger"
+                        (click)="borrar(i)">
                     Eliminar
                 </button>
             </div>
@@ -58,7 +60,7 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <button type="submit" 
+            <button type="submit"
                     class="btn btn-primary float-end">
                 Guardar
             </button>
